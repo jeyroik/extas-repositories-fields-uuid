@@ -25,7 +25,7 @@ class PluginFieldUuid extends FieldAdaptorPlugin
              */
             new class () extends FieldAdaptor implements IFieldAdaptor {
 
-                public function apply()
+                public function apply(string $value)
                 {
                     return Uuid::uuid6()->toString();
                 }
@@ -54,7 +54,7 @@ class PluginFieldUuid extends FieldAdaptorPlugin
              */
             new class () extends FieldAdaptor implements IFieldAdaptor {
 
-                public function apply($value)
+                public function apply(string $value)
                 {
                     list($marker, $ns, $name) = explode('.', $value);
                     return Uuid::uuid5($ns, $name)->toString();
